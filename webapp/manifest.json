@@ -1,0 +1,31 @@
+{
+  "sap.app": {
+    "id": "mi.ui5.app",
+    "i18n": "i18n/i18n.properties",
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0",
+          "localUri": "localService/metadata.xml"
+        }
+      }
+    }
+  },
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "mi.ui5.app.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    },
+    "models": {
+      "": {
+        "type": "sap.ui.model.odata.v2.ODataModel",
+        "dataSource": "mainService",
+        "settings": { "useBatch": true }
+      }
+    }
+  }
+}

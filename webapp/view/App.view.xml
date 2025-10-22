@@ -1,0 +1,49 @@
+<mvc:View
+  controllerName="mi.ui5.app.controller.App"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  displayBlock="true">
+  <App>
+    <pages>
+      <Page title="{/appTitle}">
+        <content>
+          <VBox class="sapUiSmallMargin">
+            <Text text="{/appDescription}" />
+            <Table id="productsTable" inset="false" items="{/Products}">
+              <headerToolbar>
+                <Toolbar>
+                  <Title text="Productos (mock)"/>
+                  <ToolbarSpacer />
+                  <!-- 🔎 buscador por ID -->
+                  <SearchField
+                    width="16rem"
+                    placeholder="Buscar por ID (número)"
+                    search=".onSearch"
+                    liveChange=".onLiveChange"/>
+                  <Button text="Limpiar" press=".onClear" />
+                </Toolbar>
+              </headerToolbar>
+              <columns>
+                <Column><Text text="ID"/></Column>
+                <Column><Text text="Nombre"/></Column>
+                <Column hAlign="End"><Text text="Precio"/></Column>
+              </columns>
+              <items>
+                <ColumnListItem>
+                  <cells>
+                    <ObjectIdentifier title="{ID}" />
+                    <ObjectIdentifier title="{Name}" />
+                    <ObjectIdentifier title="{Price}" />
+
+
+
+                  </cells>
+                </ColumnListItem>
+              </items>
+            </Table>
+          </VBox>
+        </content>
+      </Page>
+    </pages>
+  </App>
+</mvc:View>
